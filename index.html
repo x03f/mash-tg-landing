@@ -6,7 +6,7 @@
       <title>Telegram: @breakingmash</title>
       <link rel="shortcut icon" href="files/favicon.ico">
       <link rel="stylesheet" href="files/bootstrap.min.css">
-      <script type="text/javascript" src="files/script.js"></script>
+      <script type="text/javascript" src="files/detect.js"></script>
       <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -32,10 +32,10 @@
             <h1 class="jumbotron-heading"></h1>
             <p style="display:block" class="lead text-muted">Все важные новости на самом популярном телеграм канале</p>
             <p>
-               <a id="open-tg" width="180px" href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2" onclick="dataLayer.push({'event': 'open-tg'});">
+               <a id="open-tg" width="180px" href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2" onclick="dataLayer.push({'event': 'open-tg-click'});">
                Открыть в Telegram
                </a>
-               <a id="store" width="180px" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="dataLayer.push({'event': 'no-tg'});return true;">
+               <a id="store" width="180px" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="dataLayer.push({'event': 'no-tg-click'});return true;">
                У меня нет Telegram
                </a>
             </p>
