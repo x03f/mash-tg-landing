@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="facebook-domain-verification" content="fha5wcjmekmvu4w3ati674e5bczu5a" />
+      <title>Telegram: @breakingmash</title>
+      <link rel="shortcut icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <script type="text/javascript" src="detect.js"></script>
+      <!-- Facebook Pixel Code -->
+      <!-- End Facebook Pixel Code -->
+   </head>
+   <style>
+      .avatar{width: 110px;}
+      h1{font-size: 30px;margin-top: 10px;font-weight: 900;}
+      .lead{max-width: 340px;margin: 0px auto 20px auto;font-size: 19px;font-weight: 500;}
+      .jumbotron{padding: 20px 10px 10px 10px;}
+   </style>
+   <body>
+      <section class="jumbotron bg-white text-center">
+         <div class="container text-center">
+            <img class="avatar" src="logo.png">
+            <h1 class="jumbotron-heading"></h1>
+            <p style="display:block" class="lead text-muted">Все важные новости на самом популярном телеграм канале</p>
+            <p>
+               <a href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2" onclick="fbq('track', 'Lead');">
+               Открыть в Telegram
+               </a>
+               <a id="dlink" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="fbq('trackCustom', 'no-tg');return true;">
+               У меня нет Telegram
+               </a>
+            </p>
+         </div>
+      </section>
+      <script type="text/javascript">
+         var user = detect.parse(navigator.userAgent);
+         dlink = "https://telegram.org/";
+         if (user.os.family == "iOS") {dlink = 'https://itunes.apple.com/ru/app/telegram-messenger/id686449807?mt=8'}             
+         if (user.os.family == "Android") {dlink = 'market://details?id=org.telegram.messenger'}
+         document.getElementById("dlink").setAttribute("href", dlink);
+      </script>
+   </body>
+</html>
