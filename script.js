@@ -1,34 +1,66 @@
 (function(root, undefined) {
+    
+    
+    
     if (!Array.prototype.map) {
         Array.prototype.map = function(callback, thisArg) {
             var T, A, k;
             if (this == null) {
                 throw new TypeError(" this is null or not defined");
             }
+            
             var O = Object(this);
+            
+            
             var len = O.length >>> 0;
+            
+            
             if (typeof callback !== "function") {
                 throw new TypeError(callback + " is not a function");
             }
+            
             if (thisArg) {
                 T = thisArg;
             }
+            
+            
             A = new Array(len);
+            
             k = 0;
+            
             while (k < len) {
                 var kValue, mappedValue;
+                
+                
+                
+                
+                
                 if (k in O) {
+                    
                     kValue = O[k];
+                    
+                    
                     mappedValue = callback.call(T, kValue, k, O);
+                    
+                    
+                    
+                    
+                    
+                    
                     A[k] = mappedValue;
                 }
+                
                 k++;
             }
+            
             return A;
         };
     }
+    
     var detect = root.detect = function() {
+        
         var _this = function() {};
+        
         var regexes = {
             browser_parsers: [ {
                 regex: "^(Opera)/(\\d+)\\.(\\d+) \\(Nintendo Wii",
@@ -931,8 +963,11 @@
             } ],
             mobile_browser_families: [ "Firefox Mobile", "Opera Mobile", "Opera Mini", "Mobile Safari", "webOS", "IE Mobile", "Playstation Portable", "Nokia", "Blackberry", "Palm", "Silk", "Android", "Maemo", "Obigo", "Netfront", "AvantGo", "Teleca", "SEMC-Browser", "Bolt", "Iris", "UP.Browser", "Symphony", "Minimo", "Bunjaloo", "Jasmine", "Dolfin", "Polaris", "BREW", "Chrome Mobile", "Chrome Mobile iOS", "UC Browser", "Tizen Browser" ]
         };
+        
         _this.parsers = [ "device_parsers", "browser_parsers", "os_parsers", "mobile_os_families", "mobile_browser_families" ];
+        
         _this.types = [ "browser", "os", "device" ];
+        
         _this.regexes = regexes || function() {
             var results = {};
             _this.parsers.map(function(parser) {
@@ -940,6 +975,7 @@
             });
             return results;
         }();
+        
         _this.families = function() {
             var results = {};
             _this.types.map(function(type) {
@@ -947,7 +983,9 @@
             });
             return results;
         }();
+        
         var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype, nativeForEach = ArrayProto.forEach, nativeIndexOf = ArrayProto.indexOf;
+        
         var find = function(ua, obj) {
             var ret = {};
             for (var i = 0; i < obj.length; i++) {
@@ -958,6 +996,7 @@
             }
             return ret;
         };
+        
         var remove = function(arr, props) {
             each(arr, function(obj) {
                 each(props, function(prop) {
@@ -965,6 +1004,7 @@
                 });
             });
         };
+        
         var contains = function(obj, target) {
             var found = false;
             if (obj == null) return found;
@@ -974,6 +1014,7 @@
             });
             return found;
         };
+        
         var each = forEach = function(obj, iterator, context) {
             if (obj == null) return;
             if (nativeForEach && obj.forEach === nativeForEach) {
@@ -990,6 +1031,7 @@
                 }
             }
         };
+        
         var extend = function(obj) {
             each(slice.call(arguments, 1), function(source) {
                 for (var prop in source) {
@@ -998,9 +1040,11 @@
             });
             return obj;
         };
+        
         var check = function(str) {
             return !!(str && typeof str != "undefined" && str != null);
         };
+        
         var toVersionString = function(obj) {
             var output = "";
             obj = obj || {};
@@ -1017,13 +1061,16 @@
             }
             return output;
         };
+        
         var toString = function(obj) {
             obj = obj || {};
             var suffix = toVersionString(obj);
             if (suffix) suffix = " " + suffix;
             return obj && check(obj.family) ? obj.family + suffix : "";
         };
+        
         _this.parse = function(ua) {
+            
             var parsers = function(type) {
                 return _this.regexes[type + "_parsers"].map(function(obj) {
                     var regexp = new RegExp(obj.regex), rep = obj[(type === "browser" ? "family" : type) + "_replacement"], major_rep = obj.major_version_replacement;
@@ -1042,12 +1089,19 @@
                     return parser;
                 });
             };
+            
             var UserAgent = function() {};
+            
             var browser_parsers = parsers("browser");
+            
             var os_parsers = parsers("os");
+            
             var device_parsers = parsers("device");
+            
             var a = new UserAgent();
+            
             a.source = ua;
+            
             a.browser = find(ua, browser_parsers);
             if (check(a.browser)) {
                 a.browser.name = toString(a.browser);
@@ -1055,6 +1109,7 @@
             } else {
                 a.browser = {};
             }
+            
             a.os = find(ua, os_parsers);
             if (check(a.os)) {
                 a.os.name = toString(a.os);
@@ -1062,6 +1117,7 @@
             } else {
                 a.os = {};
             }
+            
             a.device = find(ua, device_parsers);
             if (check(a.device)) {
                 a.device.name = toString(a.device);
@@ -1072,6 +1128,7 @@
                     family: "Other"
                 };
             }
+            
             var mobile_agents = {};
             var mobile_browser_families = _this.regexes.mobile_browser_families.map(function(str) {
                 mobile_agents[str] = true;
@@ -1079,6 +1136,7 @@
             var mobile_os_families = _this.regexes.mobile_os_families.map(function(str) {
                 mobile_agents[str] = true;
             });
+            
             if (a.browser.family === "Spider") {
                 a.device.type = "Spider";
             } else if (a.browser.tablet || a.os.tablet || a.device.tablet) {
@@ -1088,12 +1146,21 @@
             } else {
                 a.device.type = "Desktop";
             }
+            
             a.device.manufacturer = a.browser.man || a.os.man || a.device.man || null;
+            
             remove([ a.browser, a.os, a.device ], [ "tablet", "man" ]);
+            
             return a;
         };
+        
         return _this;
     }();
+    
+    
+    
+    
+    
     if (typeof exports !== "undefined") {
         if (typeof module !== "undefined" && module.exports) {
             exports = module.exports = detect;
@@ -1102,6 +1169,8 @@
     } else {
         root["detect"] = detect;
     }
+    
+    
     if (typeof define === "function" && define.amd) {
         define(function(require) {
             return detect;
