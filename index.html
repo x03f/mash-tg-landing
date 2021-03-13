@@ -6,7 +6,7 @@
       <title>Telegram: @breakingmash</title>
       <link rel="shortcut icon" href="favicon.ico">
       <link rel="stylesheet" href="style.css">
-      <script type="text/javascript" src="script.js"></script>
+      <!--script type="text/javascript" src="script.js"></script-->
       <!-- Facebook Pixel Code -->
       <!-- End Facebook Pixel Code -->
    </head>
@@ -23,10 +23,10 @@
             <h1 class="jumbotron-heading"></h1>
             <p style="display:block" class="lead text-muted">Все важные новости на самом популярном телеграм канале</p>
             <p>
-               <a href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2" onclick="fbq('track', 'Lead');">
+               <a id="open_tg" width="180px" href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2">
                Открыть в Telegram
                </a>
-               <a id="dlink" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="fbq('trackCustom', 'no-tg');return true;">
+               <a id="store" width="180px" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="return true;">
                У меня нет Telegram
                </a>
             </p>
@@ -34,10 +34,10 @@
       </section>
       <script type="text/javascript">
          var user = detect.parse(navigator.userAgent);
-         dlink = "https://telegram.org/";
-         if (user.os.family == "iOS") {dlink = 'https://itunes.apple.com/ru/app/telegram-messenger/id686449807?mt=8'}             
-         if (user.os.family == "Android") {dlink = 'market://details?id=org.telegram.messenger'}
-         document.getElementById("dlink").setAttribute("href", dlink);
+         store = "https://telegram.org/";
+         if (user.os.family == "iOS") {store = 'https://itunes.apple.com/ru/app/telegram-messenger/id686449807?mt=8'}             
+         if (user.os.family == "Android") {store = 'market://details?id=org.telegram.messenger'}
+         document.getElementById("store").setAttribute("href", store);
       </script>
    </body>
 </html>
