@@ -6,7 +6,6 @@
       <title>Telegram: @breakingmash</title>
       <link rel="shortcut icon" href="files/favicon.ico">
       <link rel="stylesheet" href="files/bootstrap.min.css">
-      <script type="text/javascript" src="files/detect.js"></script>
       <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -35,18 +34,11 @@
                <a id="open-tg" width="180px" href="tg://resolve?domain=breakingmash" class="btn btn-danger my-2" onclick="dataLayer.push({'event': 'open-tg-click'});">
                Открыть в Telegram
                </a>
-               <a id="store" width="180px" href="https://telegram.org/" class="btn btn-secondary my-2" target="_blank" onclick="dataLayer.push({'event': 'no-tg-click'});return true;">
+               <a id="store" width="180px" href="https://telegram.org/" class="btn btn-secondary my-2" onclick="dataLayer.push({'event': 'no-tg-click'});return true;">
                У меня нет Telegram
                </a>
             </p>
          </div>
       </section>
-      <script type="text/javascript">
-         var user = detect.parse(navigator.userAgent);
-         store = "https://telegram.org/";
-         if (user.os.family == "iOS") {store = 'https://itunes.apple.com/ru/app/telegram-messenger/id686449807?mt=8'}             
-         if (user.os.family == "Android") {store = 'market://details?id=org.telegram.messenger'}
-         document.getElementById("store").setAttribute("href", store);
-      </script>
    </body>
 </html>
