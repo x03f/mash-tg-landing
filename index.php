@@ -1,8 +1,6 @@
 <?php
 
-	$content = "<div class='main'>Hello, world!</div>";
-
-	echo <<<HTML
+echo <<<HTML
 
 <!DOCTYPE html>
 <html lang="ru">
