@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,31 +8,37 @@
    <link rel="shortcut icon" href="favicon.ico">
    <link rel="stylesheet" href="style.css">
    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-N5QM8XH');
+   (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+         'gtm.start': new Date().getTime(),
+         event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+         j = d.createElement(s),
+         dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+   })(window, document, 'script', 'dataLayer', 'GTM-N5QM8XH');
    </script>
-</head>
-<body>
    <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N5QM8XH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
    </noscript>
+</head>
+
+<body>
    <section class="jumbotron bg-white text-center">
-      <div class="container text-center">
-         <img class="avatar" src="logo.png">
+      <div class="container text-center"> <img class="avatar" src="logo.png">
          <h1 class="jumbotron-heading"></h1>
          <p style="display:block" class="lead text-muted">Все важные новости на самом популярном телеграм канале</p>
-         <p> 
-            <a id="open-tg" width="180px" href="https://t.me/breakingmash" class="btn btn-danger my-2" target="_blank" onclick="dataLayer.push({'event': 'open-tg-click'});">
+         <p> <a id="open-tg" width="180px" href="https://t.me/breakingmash" class="btn btn-danger my-2" target="_blank" onclick="dataLayer.push({'event': 'open-tg-click'});">
                Открыть в Telegram
-            </a>
-            <a id="store" width="180px" href="https://telegram.org" class="btn btn-secondary my-2" target="_blank" onclick="dataLayer.push({'event': 'no-tg-click'});">
+            </a> <a id="store" width="180px" href="https://telegram.org" class="btn btn-secondary my-2" target="_blank" onclick="dataLayer.push({'event': 'no-tg-click'});">
                У меня нет Telegram
-            </a>
-         <p>
+            </a> </p>
       </div>
    </section>
 </body>
+
 </html>
